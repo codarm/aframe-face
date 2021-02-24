@@ -1,5 +1,8 @@
 "use strict";
 
+
+
+
 // SETTINGS of this demo:
 const SETTINGS = {
   rotationOffsetX: 0, // negative -> look upper. in radians
@@ -54,6 +57,15 @@ function init_aFrame(spec){
 
 // build the 3D:
 function init_threeScene(spec){
+  
+  //const threeStuffs = JeelizThreeHelper.init(spec, detect_callback);
+  const frameCanvas = document.getElementById('frameCanvas');
+  const ctx = frameCanvas.getContext('2d');
+  const img = new Image(600, 600);
+  img.onload = () => {
+    ctx.drawImage(img, 0, 0, 600, 600);
+  }
+  img.src = '';
   // COMPOSITE OBJECT WHICH WILL FOLLOW THE HEAD
   // in fact we create 2 objects to be able to shift the pivot point
   THREEFACEOBJ3D = new THREE.Object3D();
